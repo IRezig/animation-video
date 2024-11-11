@@ -8,8 +8,10 @@
     "build": "tsc && vite build"
   },
   "dependencies": {
-    "@motion-canvas/core": "^3.17.0",
+    "@codemirror/language": "^6.10.3",
+    "@lezer/javascript": "^1.4.19",
     "@motion-canvas/2d": "^3.17.1",
+    "@motion-canvas/core": "^3.17.0",
     "@motion-canvas/ffmpeg": "^1.1.0"
   },
   "devDependencies": {

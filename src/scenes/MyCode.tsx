@@ -1,4 +1,12 @@
-import { Circle, Code, Rect } from "@motion-canvas/2d";
+import {
+  Circle,
+  Code,
+  Rect,
+  LezerHighlighter,
+  withDefaults,
+} from "@motion-canvas/2d";
+import { parser } from "@lezer/javascript";
+import { Style } from "./Code";
 
 const WIDTH = 700;
 const HEIGHT = 800;
@@ -8,6 +16,7 @@ const C_X = -WIDTH + 380;
 
 const fileColor = "#2b2844";
 const topBarColor = "#49475e";
+Code.defaultHighlighter = new LezerHighlighter(parser, Style);
 const MyCode = () => {
   return (
     <Rect
@@ -44,13 +53,31 @@ const MyCode = () => {
       />
       <Code
         x={-100}
-        y={0}
+        y={-400}
         fontSize={28}
         code={`\
-        function example() {
+        function newFeature() {
           const number = 7;
+          return number + 1;
         }
         `}
+      />
+
+      <Code
+        selection={[
+          [
+            [0, 0],
+            [8, 100],
+          ],
+        ]}
+        fontSize={24}
+        lineHeight={36}
+        offsetX={-1}
+        x={-960 / 2}
+        fontFamily={"JetBrains Mono"}
+        code={`export default makeScene2D(function* (view) {
+
+});`}
       />
     </Rect>
   );
