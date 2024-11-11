@@ -74,7 +74,6 @@ const MyCode = () => {
         lineHeight={36}
         offsetX={-1}
         x={-960 / 2}
-        fontFamily={"JetBrains Mono"}
         code={`export default makeScene2D(function* (view) {
 
 });`}

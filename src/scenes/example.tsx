@@ -2,7 +2,7 @@ import { makeScene2D, Rect } from "@motion-canvas/2d";
 import { all, createRef } from "@motion-canvas/core";
 import MyRect from "./rectangle";
 import MyCode from "./MyCode";
-import Browser from "./browser";
+import Browser from "./Browser";
 
 export default makeScene2D(function* (view) {
   view.add(
