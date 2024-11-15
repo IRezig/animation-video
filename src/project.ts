@@ -3,6 +3,8 @@ import { makeProject } from "@motion-canvas/core";
 import example from "./scenes/example?scene";
 import intro from "./scenes/intro?scene";
 import "./global.css";
+import errors from "./scenes/errors?scene";
+
 export default makeProject({
-  scenes: [intro],
+  scenes: [errors],
 });
