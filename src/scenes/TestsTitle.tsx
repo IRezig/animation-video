@@ -8,12 +8,13 @@ import {
 } from "@motion-canvas/core";
 import { createRef } from "@motion-canvas/core/lib/utils";
 import checkmark from "../images/checkmark.png";
+import CodeLine from "../components/CodeLine";
 
 export default makeScene2D(function* (view) {
   const ref = createRef<Circle>();
   const check = createRef<Img>();
 
-  view.add(<Rect fill={"#f0f0f0"} width={view.width} height={view.height} />);
+  view.add(<Rect fill={"#27262f"} width={view.width} height={view.height} />);
   view.add(
     <Circle ref={ref} size={160} stroke={"red"} lineWidth={10} endAngle={300} />
   );
@@ -26,6 +27,9 @@ export default makeScene2D(function* (view) {
       alpha={0}
     />
   );
+
+  view.add(<CodeLine lineY={-200} />);
+  view.add(<CodeLine lineY={0} />);
 
   yield* all(ref().start(1, 1), ref().rotation(180, 1, easeInCubic));
   ref().start(0).end(0);
