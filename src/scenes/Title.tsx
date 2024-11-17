@@ -4,6 +4,8 @@ import { createRef } from "@motion-canvas/core/lib/utils";
 import template1 from "../images/template_1.png";
 import template2 from "../images/template_2.png";
 import template3 from "../images/template_3.png";
+import checkmark from "../images/checkmark.png";
+import bad from "../images/bad.png";
 
 export default makeScene2D(function* (view) {
   const title = createRef<Txt>();
@@ -94,6 +96,8 @@ export default makeScene2D(function* (view) {
   );
 
   const templateImg = createRef<Img>();
+  const templateImg2 = createRef<Img>();
+  const templateImg3 = createRef<Img>();
   const templateTitle = createRef<Txt>();
   const templateT1 = createRef<Txt>();
   const templateT2 = createRef<Txt>();
@@ -111,7 +115,7 @@ export default makeScene2D(function* (view) {
       />
       <Txt fontSize={40} position={[400, -370]} fill="#fff" ref={templateT2} />
       <Img
-        ref={templateImg}
+        ref={templateImg2}
         src={template2}
         position={[400, -140]}
         width={800}
@@ -119,7 +123,7 @@ export default makeScene2D(function* (view) {
       />
       <Txt fontSize={40} position={[-50, 110]} fill="#fff" ref={templateT3} />
       <Img
-        ref={templateImg}
+        ref={templateImg3}
         src={template3}
         position={[0, 340]}
         width={800}
@@ -134,7 +138,53 @@ export default makeScene2D(function* (view) {
   yield* templateT2().text("New End To End Test", 2);
   yield* templateT3().text("Security Fix", 4);
 
-  // yield* templateImg().opacity(0, 1);
+  yield* waitFor(6);
+  yield* all(
+    templateImg().opacity(0, 1),
+    templateImg2().opacity(0, 1),
+    templateImg3().opacity(0, 1),
+    templateTitle().opacity(0, 1),
+    templateT1().opacity(0, 1),
+    templateT2().opacity(0, 1),
+    templateT3().opacity(0, 1)
+  );
 
-  yield* waitFor(30);
+  yield* title().text("");
+  yield* title().opacity(1, 0.5);
+  yield* title().text("Meaningful Commit Messages", 2);
+  yield* title().position.y(-300, 1);
+
+  const goodCommit = createRef<Txt>();
+  const badCommit = createRef<Txt>();
+
+  view.add(
+    <>
+      <Rect
+        fill={"#fff"}
+        width={840}
+        height={100}
+        position={[-450, -100]}
+        radius={22}
+      >
+        <Img src={checkmark} width={80} height={80} position={[-370, 0]} />
+        <Txt fontSize={40} position={[30, 0]} fill="green" ref={goodCommit} />
+      </Rect>
+      <Rect
+        fill={"#fff"}
+        width={400}
+        height={100}
+        position={[450, -100]}
+        radius={22}
+      >
+        <Img src={bad} width={60} height={60} position={[-140, 0]} />
+        <Txt fontSize={40} position={[0, 0]} fill="red" ref={badCommit} />
+      </Rect>
+    </>
+  );
+
+  yield* goodCommit().text("add: debounce function to search input", 1);
+  yield* waitFor(1);
+  yield* badCommit().text("add: Stuff", 1);
+
+  yield* waitFor(16);
 });
