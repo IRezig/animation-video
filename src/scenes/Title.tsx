@@ -1,6 +1,9 @@
-import { Line, makeScene2D, Node, Rect, Txt } from "@motion-canvas/2d";
+import { Img, Line, makeScene2D, Node, Rect, Txt } from "@motion-canvas/2d";
 import { all, waitFor } from "@motion-canvas/core";
 import { createRef } from "@motion-canvas/core/lib/utils";
+import template1 from "../images/template_1.png";
+import template2 from "../images/template_2.png";
+import template3 from "../images/template_3.png";
 
 export default makeScene2D(function* (view) {
   const title = createRef<Txt>();
@@ -82,6 +85,56 @@ export default makeScene2D(function* (view) {
   yield* arrow().end(1, 0.6);
   yield* PRBtn().fill("#4a465b", 0.2);
   yield* PRBtnText().text("Try my New Feature", 0.5);
+  yield* waitFor(3);
+
+  yield* all(
+    arrow().opacity(0, 0.5),
+    PRBtn().opacity(0, 0.5),
+    PRBtnText().opacity(0, 0.5)
+  );
+
+  const templateImg = createRef<Img>();
+  const templateTitle = createRef<Txt>();
+  const templateT1 = createRef<Txt>();
+  const templateT2 = createRef<Txt>();
+  const templateT3 = createRef<Txt>();
+  view.add(
+    <>
+      <Txt fontSize={80} position={[0, -450]} fill="#fcf" ref={templateTitle} />
+      <Txt fontSize={40} position={[-500, -370]} fill="#fff" ref={templateT1} />
+      <Img
+        ref={templateImg}
+        src={template1}
+        position={[-500, -140]}
+        width={800}
+        height={400}
+      />
+      <Txt fontSize={40} position={[400, -370]} fill="#fff" ref={templateT2} />
+      <Img
+        ref={templateImg}
+        src={template2}
+        position={[400, -140]}
+        width={800}
+        height={400}
+      />
+      <Txt fontSize={40} position={[-50, 110]} fill="#fff" ref={templateT3} />
+      <Img
+        ref={templateImg}
+        src={template3}
+        position={[0, 340]}
+        width={800}
+        height={400}
+      />
+    </>
+  );
+
+  yield* templateTitle().text("Templates", 1);
+  yield* waitFor(1);
+  yield* templateT1().text("Change Documentation Location", 1);
+  yield* templateT2().text("New End To End Test", 2);
+  yield* templateT3().text("Security Fix", 4);
+
+  // yield* templateImg().opacity(0, 1);
 
   yield* waitFor(30);
 });
