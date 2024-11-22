@@ -186,5 +186,5 @@ export default makeScene2D(function* (view) {
   yield* waitFor(1);
   yield* badCommit().text("add: Stuff", 1);
 
-  yield* waitFor(16);
+  yield* waitFor(10);
 });
