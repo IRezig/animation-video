@@ -7,5 +7,9 @@
   "useTabs": false,
   "bracketSpacing": true,
   "arrowParens": "always",
-  "endOfLine": "lf"
+  "endOfLine": "lf",
+  "react/jsx-curly-brace-presence": [
+    "error",
+    { "props": "never", "children": "ignore" }
+  ]
 }

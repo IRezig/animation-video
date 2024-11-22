@@ -4,10 +4,6 @@
     {
       "name": "show_renderer",
       "targetTime": 0.22460965364191166
-    },
-    {
-      "name": "show_previous",
-      "targetTime": 1.6246096536419117
     }
   ],
   "seed": 2368736826

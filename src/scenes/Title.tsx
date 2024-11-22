@@ -185,6 +185,4 @@ export default makeScene2D(function* (view) {
   yield* goodCommit().text('add: debounce function to search input', 1);
   yield* waitFor(1);
   yield* badCommit().text('add: Stuff', 1);
-
-  yield* waitFor(10);
 });

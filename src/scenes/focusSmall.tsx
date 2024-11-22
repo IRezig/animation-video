@@ -3,7 +3,6 @@ import { all, waitFor } from '@motion-canvas/core';
 import { createRef } from '@motion-canvas/core';
 
 export default makeScene2D(function* (view) {
-  const rectangle = createRef<Rect>();
   const title = createRef<Txt>();
   const feature = createRef<Txt>();
   const featureA = createRef<Txt>();

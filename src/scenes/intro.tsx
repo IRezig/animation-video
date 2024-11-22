@@ -1,16 +1,13 @@
 import {
   Circle,
   Code,
-  Line,
   makeScene2D,
-  Node,
   lines,
-  word,
   Rect,
   Txt,
   LezerHighlighter,
 } from '@motion-canvas/2d';
-import { createRef } from '@motion-canvas/core';
+import { createRef, all } from '@motion-canvas/core';
 import { Direction } from '@motion-canvas/core/lib/types';
 import { slideTransition } from '@motion-canvas/core/lib/transitions';
 import { waitFor, waitUntil } from '@motion-canvas/core/lib/flow';
@@ -260,40 +257,35 @@ export default NewFeature;
   yield* slideTransition(Direction.Bottom, 1);
   yield* waitUntil('signal');
   yield* code().selection(lines(5), 0.5);
-  yield* waitFor(0.3);
-
   yield* code().selection(lines(9), 0.5);
   yield* titleLabel().text('New Feature', 0.3);
-  yield* waitFor(0.3);
-
   yield* code().selection(lines(10, 12), 0.5);
   yield* descLabel().text('A new feature has been added ', 0.3);
-  yield* waitFor(0.3);
-
   yield* code().selection(lines(13, 15), 0.5);
   yield* btn().fill('blue', 0.9);
-  yield* waitFor(1);
-
   yield* code().selection(lines(0, 20), 0.5);
+
   yield* titleLabel().text('', 0.1);
   yield* descLabel().text('', 0.1);
   yield* btn().fill('#fff', 0.1);
   yield* btnLabel().text('', 0.1);
   yield* navigator().fill('#fff', 0.3);
 
-  yield* waitFor(3);
+  yield* waitFor(1);
 
-  yield* PRNew().text('New Pull Request', 0.3);
-  yield* PRTitle().text('Title', 0.3);
-  yield* PRTitleRect().x(0, 0.3);
-  yield* PRTitleText().text('New Feature', 0.3);
-  yield* PRDesc().text('Description', 0.3);
-  yield* PRDescRect().x(0, 0.3);
-  yield* PRDescText().text('Nothing', 0.3);
-  yield* PRCode().text('Code', 0.3);
-  yield* PRCodeRect().x(50, 0.3);
-  yield* PRCodeText().text(`code here`, 0.3);
-  yield* PRBtnText().text('Create a new Pull Request', 0.3);
-  yield* PRBtn().fill('blue', 0.2);
-  yield* waitFor(3);
+  yield* all(
+    PRNew().text('New Pull Request', 0.2),
+    PRTitle().text('Title', 0.2),
+    PRTitleRect().x(0, 0.2),
+    PRDesc().text('Description', 0.2),
+    PRCode().text('Code', 0.2),
+    PRDescRect().x(0, 0.2),
+    PRTitleText().text('New Feature', 0.2),
+    PRDescText().text('Nothing', 0.2),
+    PRCodeRect().x(50, 0.2),
+    PRCodeText().text(`code here`, 0.2),
+    PRBtnText().text('Create a new Pull Request', 0.2),
+    PRBtn().fill('blue', 0.2)
+  );
+  yield* waitFor(2);
 });
