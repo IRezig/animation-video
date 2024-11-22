@@ -1,6 +1,6 @@
-import { Img, makeScene2D, Rect, RectProps, Txt } from "@motion-canvas/2d";
-import { createRef, makeRef, makeRefs } from "@motion-canvas/core/lib/utils";
-import { BlackLabel, Colors, WhiteLabel } from "../styles";
+import { Img, makeScene2D, Rect, RectProps, Txt } from '@motion-canvas/2d';
+import { createRef, makeRef, makeRefs } from '@motion-canvas/core/lib/utils';
+import { BlackLabel, Colors, WhiteLabel } from '../styles';
 
 interface ContainerRefs {
   rect: Rect;
@@ -14,7 +14,7 @@ export interface ContainerProps extends RectProps {
 }
 
 export function Container({
-  label = "",
+  label = '',
   refs = {} as ContainerRefs,
   children,
   src,
@@ -26,8 +26,8 @@ export function Container({
       layout
       fill={Colors.surface}
       radius={8}
-      ref={ref ?? makeRef(refs, "rect")}
-      direction={"column"}
+      ref={ref ?? makeRef(refs, 'rect')}
+      direction={'column'}
       padding={40}
       gap={20}
       {...rest}
@@ -36,7 +36,7 @@ export function Container({
         <Img opacity={1} width={80} height={80} margin={20} src={src} />
         <Txt
           paddingRight={40}
-          ref={makeRef(refs, "label")}
+          ref={makeRef(refs, 'label')}
           lineHeight={60}
           marginTop={30}
           {...WhiteLabel}

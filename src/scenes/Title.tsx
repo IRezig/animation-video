@@ -1,11 +1,11 @@
-import { Img, Line, makeScene2D, Node, Rect, Txt } from "@motion-canvas/2d";
-import { all, waitFor } from "@motion-canvas/core";
-import { createRef } from "@motion-canvas/core/lib/utils";
-import template1 from "../images/template_1.png";
-import template2 from "../images/template_2.png";
-import template3 from "../images/template_3.png";
-import checkmark from "../images/checkmark.png";
-import bad from "../images/bad.png";
+import { Img, Line, makeScene2D, Node, Rect, Txt } from '@motion-canvas/2d';
+import { all, waitFor } from '@motion-canvas/core';
+import { createRef } from '@motion-canvas/core/lib/utils';
+import template1 from '../images/template_1.png';
+import template2 from '../images/template_2.png';
+import template3 from '../images/template_3.png';
+import checkmark from '../images/checkmark.png';
+import bad from '../images/bad.png';
 
 export default makeScene2D(function* (view) {
   const title = createRef<Txt>();
@@ -13,13 +13,13 @@ export default makeScene2D(function* (view) {
   const tip2 = createRef<Txt>();
   const tip3 = createRef<Txt>();
 
-  view.add(<Rect fill={"#27262f"} width={view.width} height={view.height} />);
+  view.add(<Rect fill={'#27262f'} width={view.width} height={view.height} />);
   yield view.add(
     <Txt ref={title} fontSize={50} position={[0, 0]} fill="white" />
   );
 
   yield* waitFor(0.51);
-  yield* title().text("Add detailed Description and Screenshots or Video", 2);
+  yield* title().text('Add detailed Description and Screenshots or Video', 2);
   yield* waitFor(4);
   yield* title().opacity(0, 1);
 
@@ -33,9 +33,9 @@ export default makeScene2D(function* (view) {
     </Node>
   );
 
-  yield* tip1().text("1. What the PR does", 2);
-  yield* tip2().text("2. Why the change is necessary", 2);
-  yield* tip3().text("3. Any potential side effects", 3);
+  yield* tip1().text('1. What the PR does', 2);
+  yield* tip2().text('2. Why the change is necessary', 2);
+  yield* tip3().text('3. Any potential side effects', 3);
 
   yield* waitFor(1);
   yield* all(tip1().opacity(0, 2), tip2().opacity(0, 2), tip3().opacity(0, 2));
@@ -48,7 +48,7 @@ export default makeScene2D(function* (view) {
       <Line
         ref={arrow}
         position={[-800, 0]}
-        stroke={"#666"}
+        stroke={'#666'}
         lineWidth={8}
         endArrow
         startOffset={() => 20}
@@ -70,7 +70,7 @@ export default makeScene2D(function* (view) {
         x={70}
         y={80}
         radius={10}
-        stroke={"#fcf"}
+        stroke={'#fcf'}
         lineWidth={2}
       >
         <Txt
@@ -78,15 +78,15 @@ export default makeScene2D(function* (view) {
           x={0}
           y={0}
           fontSize={26}
-          fill={"#fcf"}
-          fontFamily={"JetBrains Mono"}
+          fill={'#fcf'}
+          fontFamily={'JetBrains Mono'}
         />
       </Rect>
     </>
   );
   yield* arrow().end(1, 0.6);
-  yield* PRBtn().fill("#4a465b", 0.2);
-  yield* PRBtnText().text("Try my New Feature", 0.5);
+  yield* PRBtn().fill('#4a465b', 0.2);
+  yield* PRBtnText().text('Try my New Feature', 0.5);
   yield* waitFor(3);
 
   yield* all(
@@ -132,11 +132,11 @@ export default makeScene2D(function* (view) {
     </>
   );
 
-  yield* templateTitle().text("Templates", 1);
+  yield* templateTitle().text('Templates', 1);
   yield* waitFor(1);
-  yield* templateT1().text("Change Documentation Location", 1);
-  yield* templateT2().text("New End To End Test", 2);
-  yield* templateT3().text("Security Fix", 4);
+  yield* templateT1().text('Change Documentation Location', 1);
+  yield* templateT2().text('New End To End Test', 2);
+  yield* templateT3().text('Security Fix', 4);
 
   yield* waitFor(6);
   yield* all(
@@ -149,9 +149,9 @@ export default makeScene2D(function* (view) {
     templateT3().opacity(0, 1)
   );
 
-  yield* title().text("");
+  yield* title().text('');
   yield* title().opacity(1, 0.5);
-  yield* title().text("Meaningful Commit Messages", 2);
+  yield* title().text('Meaningful Commit Messages', 2);
   yield* title().position.y(-300, 1);
 
   const goodCommit = createRef<Txt>();
@@ -160,7 +160,7 @@ export default makeScene2D(function* (view) {
   view.add(
     <>
       <Rect
-        fill={"#fff"}
+        fill={'#fff'}
         width={840}
         height={100}
         position={[-450, -100]}
@@ -170,7 +170,7 @@ export default makeScene2D(function* (view) {
         <Txt fontSize={40} position={[30, 0]} fill="green" ref={goodCommit} />
       </Rect>
       <Rect
-        fill={"#fff"}
+        fill={'#fff'}
         width={400}
         height={100}
         position={[450, -100]}
@@ -182,9 +182,9 @@ export default makeScene2D(function* (view) {
     </>
   );
 
-  yield* goodCommit().text("add: debounce function to search input", 1);
+  yield* goodCommit().text('add: debounce function to search input', 1);
   yield* waitFor(1);
-  yield* badCommit().text("add: Stuff", 1);
+  yield* badCommit().text('add: Stuff', 1);
 
   yield* waitFor(10);
 });

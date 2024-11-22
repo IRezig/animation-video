@@ -1,4 +1,4 @@
-import { Circle, Code, Rect, Txt } from "@motion-canvas/2d";
+import { Circle, Code, Rect, Txt } from '@motion-canvas/2d';
 
 const WIDTH = 700;
 const HEIGHT = 800;
@@ -6,8 +6,8 @@ const C_SIZE = 25;
 const C_Y = -400;
 const C_X = -WIDTH + 380;
 
-const fileColor = "#ecec";
-const topBarColor = "#49475e";
+const fileColor = '#ecec';
+const topBarColor = '#49475e';
 const Browser = () => {
   return (
     <Rect
@@ -48,23 +48,23 @@ const Browser = () => {
         x={0}
         y={-300}
         fontSize={28}
-        text={"New Feature"}
-        fontFamily={"JetBrains Mono"}
+        text={'New Feature'}
+        fontFamily={'JetBrains Mono'}
       />
       <Txt
         x={0}
         y={-250}
         fontSize={20}
-        text={"A new feature has been added to the browser"}
-        fontFamily={"JetBrains Mono"}
+        text={'A new feature has been added to the browser'}
+        fontFamily={'JetBrains Mono'}
       />
       <Rect width={400} height={50} fill="#fff" x={0} y={200} radius={10}>
         <Txt
           x={0}
           y={0}
           fontSize={20}
-          text={"Click here to learn more"}
-          fontFamily={"JetBrains Mono"}
+          text={'Click here to learn more'}
+          fontFamily={'JetBrains Mono'}
         />
       </Rect>
     </Rect>

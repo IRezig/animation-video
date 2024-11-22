@@ -1,6 +1,6 @@
-import { Line, makeScene2D, Rect, Txt } from "@motion-canvas/2d";
-import { all, waitFor } from "@motion-canvas/core";
-import { createRef } from "@motion-canvas/core";
+import { Line, makeScene2D, Rect, Txt } from '@motion-canvas/2d';
+import { all, waitFor } from '@motion-canvas/core';
+import { createRef } from '@motion-canvas/core';
 
 export default makeScene2D(function* (view) {
   const rectangle = createRef<Rect>();
@@ -17,7 +17,7 @@ export default makeScene2D(function* (view) {
   const rectWidth = 206;
 
   //BG
-  view.add(<Rect fill={"#27262f"} width={view.width} height={view.height} />);
+  view.add(<Rect fill={'#27262f'} width={view.width} height={view.height} />);
   // view.add(
   //   <Rect ref={rectangle} size={[900, 400]} stroke={"white"} lineWidth={5} />
   // );
@@ -127,7 +127,7 @@ export default makeScene2D(function* (view) {
     </Line>
   );
 
-  yield* feature().text("Add Login System", 1);
+  yield* feature().text('Add Login System', 1);
   yield* all(
     rect1().opacity(1, 2),
     rect2().opacity(1, 2),
@@ -139,9 +139,9 @@ export default makeScene2D(function* (view) {
     rect2().position.y(400, 4)
   );
   yield* all(
-    featureA().text("User Interface", 2),
-    featureB().text("Authentication Logic", 2),
-    featureC().text("Security and Session Management", 2)
+    featureA().text('User Interface', 2),
+    featureB().text('Authentication Logic', 2),
+    featureC().text('Security and Session Management', 2)
   );
 
   // yield* waitFor(10);

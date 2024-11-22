@@ -1,4 +1,4 @@
-import { Line } from "@motion-canvas/2d";
+import { Line } from '@motion-canvas/2d';
 
 const CodeLine = ({ lineY }: { lineY: number }) => {
   const littleLinePoints = [

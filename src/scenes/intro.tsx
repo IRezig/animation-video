@@ -9,13 +9,13 @@ import {
   Rect,
   Txt,
   LezerHighlighter,
-} from "@motion-canvas/2d";
-import { createRef } from "@motion-canvas/core";
-import { Direction } from "@motion-canvas/core/lib/types";
-import { slideTransition } from "@motion-canvas/core/lib/transitions";
-import { waitFor, waitUntil } from "@motion-canvas/core/lib/flow";
-import { parser } from "@lezer/javascript";
-import { Style } from "./Code";
+} from '@motion-canvas/2d';
+import { createRef } from '@motion-canvas/core';
+import { Direction } from '@motion-canvas/core/lib/types';
+import { slideTransition } from '@motion-canvas/core/lib/transitions';
+import { waitFor, waitUntil } from '@motion-canvas/core/lib/flow';
+import { parser } from '@lezer/javascript';
+import { Style } from './Code';
 
 const WIDTH = 700;
 const HEIGHT = 800;
@@ -23,8 +23,8 @@ const C_SIZE = 25;
 const C_Y = -400;
 const C_X = -WIDTH + 380;
 
-const fileColor = "#ecec";
-const topBarColor = "#49475e";
+const fileColor = '#ecec';
+const topBarColor = '#49475e';
 Code.defaultHighlighter = new LezerHighlighter(parser, Style);
 export default makeScene2D(function* (view) {
   const code = createRef<Code>();
@@ -49,7 +49,7 @@ export default makeScene2D(function* (view) {
   const descLabel = createRef<Txt>();
 
   view.add(
-    <Rect layout fill={"#141414"} height={"100%"} width={"100%"}></Rect>
+    <Rect layout fill={'#141414'} height={'100%'} width={'100%'}></Rect>
   );
 
   yield view.add(
@@ -92,15 +92,15 @@ export default makeScene2D(function* (view) {
         x={-150}
         y={-300}
         fontSize={28}
-        fill={"green"}
-        fontFamily={"JetBrains Mono"}
+        fill={'green'}
+        fontFamily={'JetBrains Mono'}
       />
       <Txt
         ref={PRTitle}
         x={-290}
         y={-200}
         fontSize={20}
-        fontFamily={"JetBrains Mono"}
+        fontFamily={'JetBrains Mono'}
       />
       <Rect
         ref={PRTitleRect}
@@ -116,7 +116,7 @@ export default makeScene2D(function* (view) {
           x={0}
           y={0}
           fontSize={20}
-          fontFamily={"JetBrains Mono"}
+          fontFamily={'JetBrains Mono'}
         />
       </Rect>
       <Txt
@@ -124,7 +124,7 @@ export default makeScene2D(function* (view) {
         x={-250}
         y={-100}
         fontSize={20}
-        fontFamily={"JetBrains Mono"}
+        fontFamily={'JetBrains Mono'}
       />
       <Rect
         ref={PRDescRect}
@@ -140,7 +140,7 @@ export default makeScene2D(function* (view) {
           x={0}
           y={0}
           fontSize={20}
-          fontFamily={"JetBrains Mono"}
+          fontFamily={'JetBrains Mono'}
         />
       </Rect>
       <Txt
@@ -148,7 +148,7 @@ export default makeScene2D(function* (view) {
         x={-300}
         y={-20}
         fontSize={20}
-        fontFamily={"JetBrains Mono"}
+        fontFamily={'JetBrains Mono'}
       />
       <Rect
         ref={PRCodeRect}
@@ -164,7 +164,7 @@ export default makeScene2D(function* (view) {
           x={0}
           y={0}
           fontSize={20}
-          fontFamily={"JetBrains Mono"}
+          fontFamily={'JetBrains Mono'}
         />
       </Rect>
       <Rect ref={PRBtn} width={350} height={50} x={50} y={300} radius={10}>
@@ -173,7 +173,7 @@ export default makeScene2D(function* (view) {
           x={0}
           y={0}
           fontSize={20}
-          fontFamily={"JetBrains Mono"}
+          fontFamily={'JetBrains Mono'}
         />
       </Rect>
 
@@ -182,9 +182,9 @@ export default makeScene2D(function* (view) {
         x={0}
         y={-250}
         fontSize={38}
-        fontFamily={"Delius"}
+        fontFamily={'Delius'}
       />
-      <Txt ref={descLabel} x={0} y={-150} fontSize={30} fontFamily={"Delius"} />
+      <Txt ref={descLabel} x={0} y={-150} fontSize={30} fontFamily={'Delius'} />
       <Rect
         ref={btn}
         width={200}
@@ -199,8 +199,8 @@ export default makeScene2D(function* (view) {
           x={0}
           y={0}
           fontSize={20}
-          text={"Click Here"}
-          fontFamily={"Delius"}
+          text={'Click Here'}
+          fontFamily={'Delius'}
         />
       </Rect>
     </Rect>
@@ -229,7 +229,7 @@ export default makeScene2D(function* (view) {
           lineHeight={36}
           offsetX={-1}
           x={-960 / 2}
-          fontFamily={"JetBrains Mono"}
+          fontFamily={'JetBrains Mono'}
           code={`
 import { Card, Typography, Button } from 'antd';
 
@@ -258,42 +258,42 @@ export default NewFeature;
   );
 
   yield* slideTransition(Direction.Bottom, 1);
-  yield* waitUntil("signal");
+  yield* waitUntil('signal');
   yield* code().selection(lines(5), 0.5);
   yield* waitFor(0.3);
 
   yield* code().selection(lines(9), 0.5);
-  yield* titleLabel().text("New Feature", 0.3);
+  yield* titleLabel().text('New Feature', 0.3);
   yield* waitFor(0.3);
 
   yield* code().selection(lines(10, 12), 0.5);
-  yield* descLabel().text("A new feature has been added ", 0.3);
+  yield* descLabel().text('A new feature has been added ', 0.3);
   yield* waitFor(0.3);
 
   yield* code().selection(lines(13, 15), 0.5);
-  yield* btn().fill("blue", 0.9);
+  yield* btn().fill('blue', 0.9);
   yield* waitFor(1);
 
   yield* code().selection(lines(0, 20), 0.5);
-  yield* titleLabel().text("", 0.1);
-  yield* descLabel().text("", 0.1);
-  yield* btn().fill("#fff", 0.1);
-  yield* btnLabel().text("", 0.1);
-  yield* navigator().fill("#fff", 0.3);
+  yield* titleLabel().text('', 0.1);
+  yield* descLabel().text('', 0.1);
+  yield* btn().fill('#fff', 0.1);
+  yield* btnLabel().text('', 0.1);
+  yield* navigator().fill('#fff', 0.3);
 
   yield* waitFor(3);
 
-  yield* PRNew().text("New Pull Request", 0.3);
-  yield* PRTitle().text("Title", 0.3);
+  yield* PRNew().text('New Pull Request', 0.3);
+  yield* PRTitle().text('Title', 0.3);
   yield* PRTitleRect().x(0, 0.3);
-  yield* PRTitleText().text("New Feature", 0.3);
-  yield* PRDesc().text("Description", 0.3);
+  yield* PRTitleText().text('New Feature', 0.3);
+  yield* PRDesc().text('Description', 0.3);
   yield* PRDescRect().x(0, 0.3);
-  yield* PRDescText().text("Nothing", 0.3);
-  yield* PRCode().text("Code", 0.3);
+  yield* PRDescText().text('Nothing', 0.3);
+  yield* PRCode().text('Code', 0.3);
   yield* PRCodeRect().x(50, 0.3);
   yield* PRCodeText().text(`code here`, 0.3);
-  yield* PRBtnText().text("Create a new Pull Request", 0.3);
-  yield* PRBtn().fill("blue", 0.2);
+  yield* PRBtnText().text('Create a new Pull Request', 0.3);
+  yield* PRBtn().fill('blue', 0.2);
   yield* waitFor(3);
 });

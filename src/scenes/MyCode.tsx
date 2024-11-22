@@ -4,9 +4,9 @@ import {
   Rect,
   LezerHighlighter,
   withDefaults,
-} from "@motion-canvas/2d";
-import { parser } from "@lezer/javascript";
-import { Style } from "./Code";
+} from '@motion-canvas/2d';
+import { parser } from '@lezer/javascript';
+import { Style } from './Code';
 
 const WIDTH = 700;
 const HEIGHT = 800;
@@ -14,8 +14,8 @@ const C_SIZE = 25;
 const C_Y = -400;
 const C_X = -WIDTH + 380;
 
-const fileColor = "#2b2844";
-const topBarColor = "#49475e";
+const fileColor = '#2b2844';
+const topBarColor = '#49475e';
 Code.defaultHighlighter = new LezerHighlighter(parser, Style);
 const MyCode = () => {
   return (

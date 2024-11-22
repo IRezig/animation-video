@@ -1,23 +1,23 @@
-import { HighlightStyle } from "@codemirror/language";
+import { HighlightStyle } from '@codemirror/language';
 import {
   Code,
   LezerHighlighter,
   withDefaults,
   CodeProps,
-} from "@motion-canvas/2d";
-import { map } from "@motion-canvas/core";
-import { tags } from "@lezer/highlight";
-import { parser as js } from "@lezer/javascript";
+} from '@motion-canvas/2d';
+import { map } from '@motion-canvas/core';
+import { tags } from '@lezer/highlight';
+import { parser as js } from '@lezer/javascript';
 
-const KEYWORD = "#ff5d62";
-const TEXT = "#dbdbdb";
-const BRACES = "#b2b2b2";
-const FUNCTION = "#eabe71";
-const STRING = "#98bb6c";
-const NUMBER = "#75b9ab";
-const CLASS = "#68ABDF";
-const COMMENT = "#808586";
-const OPERATOR = "#d27e99";
+const KEYWORD = '#ff5d62';
+const TEXT = '#dbdbdb';
+const BRACES = '#b2b2b2';
+const FUNCTION = '#eabe71';
+const STRING = '#98bb6c';
+const NUMBER = '#75b9ab';
+const CLASS = '#68ABDF';
+const COMMENT = '#808586';
+const OPERATOR = '#d27e99';
 
 export const Style = HighlightStyle.define([
   {
@@ -82,7 +82,7 @@ const Defaults: CodeProps = {
     },
   },
   fill: OPERATOR,
-  fontFamily: "JetBrains Mono",
-  lineHeight: "150%",
+  fontFamily: 'JetBrains Mono',
+  lineHeight: '150%',
   fontSize: 28,
 };

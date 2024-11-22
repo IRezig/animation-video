@@ -1,4 +1,4 @@
-import { Rect, Txt } from "@motion-canvas/2d";
+import { Rect, Txt } from '@motion-canvas/2d';
 
 const MyRect = ({ myRect, text }: { myRect; text: string }) => {
   return (

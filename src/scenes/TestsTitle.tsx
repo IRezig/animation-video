@@ -1,28 +1,28 @@
-import { makeScene2D, Circle, Rect, Img } from "@motion-canvas/2d";
+import { makeScene2D, Circle, Rect, Img } from '@motion-canvas/2d';
 import {
   all,
   waitFor,
   easeOutCubic,
   easeInCubic,
   waitUntil,
-} from "@motion-canvas/core";
-import { createRef, createRefMap } from "@motion-canvas/core/lib/utils";
-import checkmark from "../images/checkmark.png";
-import CodeLine from "../components/codeLines/CodeLine";
-import CodeLine2 from "../components/codeLines/CodeLine2";
+} from '@motion-canvas/core';
+import { createRef, createRefMap } from '@motion-canvas/core/lib/utils';
+import checkmark from '../images/checkmark.png';
+import CodeLine from '../components/codeLines/CodeLine';
+import CodeLine2 from '../components/codeLines/CodeLine2';
 
 export default makeScene2D(function* (view) {
   const check = createRefMap<Img>();
   const ref = createRefMap<Circle>();
 
-  view.add(<Rect fill={"#27262f"} width={view.width} height={view.height} />);
+  view.add(<Rect fill={'#27262f'} width={view.width} height={view.height} />);
   yield view.add(
     <>
       <>
         <Circle
           ref={ref.a}
           size={60}
-          stroke={"red"}
+          stroke={'red'}
           lineWidth={10}
           endAngle={300}
           position={[-700, -200]}
@@ -40,7 +40,7 @@ export default makeScene2D(function* (view) {
         <Circle
           ref={ref.b}
           size={60}
-          stroke={"red"}
+          stroke={'red'}
           lineWidth={10}
           endAngle={300}
           position={[-700, -100]}
@@ -58,7 +58,7 @@ export default makeScene2D(function* (view) {
         <Circle
           ref={ref.c}
           size={60}
-          stroke={"red"}
+          stroke={'red'}
           lineWidth={10}
           endAngle={300}
           position={[-700, -0]}
@@ -76,7 +76,7 @@ export default makeScene2D(function* (view) {
         <Circle
           ref={ref.d}
           size={60}
-          stroke={"red"}
+          stroke={'red'}
           lineWidth={10}
           endAngle={300}
           position={[-700, 100]}
@@ -110,16 +110,16 @@ export default makeScene2D(function* (view) {
   yield* all(
     ref.a().end(1, 1),
     ref.a().rotation(360, 1, easeOutCubic),
-    ref.a().stroke("#33bc7d", 0.2),
+    ref.a().stroke('#33bc7d', 0.2),
     check.a().size([50, 50], 1).to([80, null], 1),
     check.a().alpha(0, 1).to(1, 1)
   );
   yield* all(ref.b().end(1, 1), ref.b().rotation(360, 1, easeOutCubic));
   yield* all(ref.c().end(1, 1), ref.c().rotation(360, 1, easeOutCubic));
   yield* all(ref.d().end(1, 1), ref.d().rotation(360, 1, easeOutCubic));
-  yield* ref.b().stroke("#33bc7d", 0.2);
-  yield* ref.c().stroke("#33bc7d", 0.2);
-  yield* ref.d().stroke("#33bc7d", 0.2);
+  yield* ref.b().stroke('#33bc7d', 0.2);
+  yield* ref.c().stroke('#33bc7d', 0.2);
+  yield* ref.d().stroke('#33bc7d', 0.2);
 
   // yield* slideTransition(Direction.Left, 1);
 

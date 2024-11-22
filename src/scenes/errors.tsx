@@ -1,14 +1,14 @@
-import { Img, makeScene2D, Rect } from "@motion-canvas/2d";
-import { Direction, slideTransition, waitFor } from "@motion-canvas/core";
-import { createRef, makeRef, makeRefs } from "@motion-canvas/core/lib/utils";
-import { all, delay, waitUntil } from "@motion-canvas/core/lib/flow";
-import warning from "../images/warning.png";
-import previous from "../images/previous.png";
-import leadDev from "../images/leadDev.webp";
-import { easeInOutCubic, easeOutCubic } from "@motion-canvas/core/lib/tweening";
-import { Vector2 } from "@motion-canvas/core/lib/types";
-import { Container } from "../components/Container";
-import { Pass } from "../components/Pass";
+import { Img, makeScene2D, Rect } from '@motion-canvas/2d';
+import { Direction, slideTransition, waitFor } from '@motion-canvas/core';
+import { createRef, makeRef, makeRefs } from '@motion-canvas/core/lib/utils';
+import { all, delay, waitUntil } from '@motion-canvas/core/lib/flow';
+import warning from '../images/warning.png';
+import previous from '../images/previous.png';
+import leadDev from '../images/leadDev.webp';
+import { easeInOutCubic, easeOutCubic } from '@motion-canvas/core/lib/tweening';
+import { Vector2 } from '@motion-canvas/core/lib/types';
+import { Container } from '../components/Container';
+import { Pass } from '../components/Pass';
 
 export default makeScene2D(function* (view) {
   const renderer = createRef<Rect>();
@@ -17,7 +17,7 @@ export default makeScene2D(function* (view) {
   const video = createRef<Img>();
 
   view.add(
-    <Rect layout fill={"#141414"} height={"100%"} width={"100%"}></Rect>
+    <Rect layout fill={'#141414'} height={'100%'} width={'100%'}></Rect>
   );
 
   yield view.add(
@@ -71,7 +71,7 @@ export default makeScene2D(function* (view) {
   );
   // yield* slideTransition(Direction.Left, 1);
 
-  yield* waitUntil("show_renderer");
+  yield* waitUntil('show_renderer');
   yield* renderer().height(null, 6);
   const clone = pass.value.clone();
   preview().add(clone);
@@ -82,7 +82,7 @@ export default makeScene2D(function* (view) {
     .fill(clone.fill());
   clone.position(0).size(pass.value.size());
 
-  yield* waitUntil("show_previous");
+  yield* waitUntil('show_previous');
   yield* all(
     preview().size(
       [1920 - 160, 1080 - 160],
@@ -91,7 +91,7 @@ export default makeScene2D(function* (view) {
       Vector2.arcLerp
     ),
     preview().position(0, 0.6),
-    preview().fill("#141414", 0.6),
+    preview().fill('#141414', 0.6),
     clone.opacity(0, 0.3),
     delay(
       0.3,

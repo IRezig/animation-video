@@ -1,4 +1,4 @@
-import { Circle } from "@motion-canvas/2d";
+import { Circle } from '@motion-canvas/2d';
 
 const MyCircle = ({ myCircle }: { myCircle }) => {
   return (
