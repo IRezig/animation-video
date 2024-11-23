@@ -1,6 +1,5 @@
-import { makeScene2D, Node, Rect, Txt } from '@motion-canvas/2d';
-import { waitFor } from '@motion-canvas/core';
-import { createRef } from '@motion-canvas/core/lib/utils';
+import { makeScene2D, Node, Ray, Rect, Txt } from '@motion-canvas/2d';
+import { waitFor, clamp, createRef } from '@motion-canvas/core';
 
 export default makeScene2D(function* (view) {
   const title = createRef<Txt>();
@@ -10,7 +9,18 @@ export default makeScene2D(function* (view) {
 
   view.add(<Rect fill={'#27262f'} width={view.width} height={view.height} />);
   yield view.add(
-    <Txt ref={title} fontSize={50} position={[0, 0]} fill="white" />
+    // <Txt  fontSize={50} position={[0, 0]} fill="white" />
+    <Txt
+      ref={title}
+      strokeFirst
+      lineWidth={10}
+      lineJoin={'round'}
+      stroke={'#c0a9e0'}
+      fill={'#432E54'}
+      fontSize={62}
+      fontWeight={900}
+      fontFamily={'Segoe Print'}
+    />
   );
   view.add(
     <Node position={[20, 0]}>
@@ -20,9 +30,8 @@ export default makeScene2D(function* (view) {
     </Node>
   );
 
-  yield* title().text('Write a quality Pull Request', 2);
+  yield* title().text('How to Write a Quality Pull Request', 3);
   yield* title().opacity(0, 2);
-
   yield* tip1().text('- Clear', 1);
   yield* tip2().text('- Concise', 1);
   yield* tip3().text('- Collaborative', 1);

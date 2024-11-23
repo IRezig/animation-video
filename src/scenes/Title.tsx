@@ -6,6 +6,8 @@ import template2 from '../images/template_2.png';
 import template3 from '../images/template_3.png';
 import checkmark from '../images/checkmark.png';
 import bad from '../images/bad.png';
+import bug from '../images/bug.png';
+import report from '../images/report.png';
 
 export default makeScene2D(function* (view) {
   const title = createRef<Txt>();
@@ -15,15 +17,24 @@ export default makeScene2D(function* (view) {
 
   view.add(<Rect fill={'#27262f'} width={view.width} height={view.height} />);
   yield view.add(
-    <Txt ref={title} fontSize={50} position={[0, 0]} fill="white" />
+    <Txt
+      ref={title}
+      strokeFirst
+      lineWidth={10}
+      lineJoin={'round'}
+      stroke={'#c0a9e0'}
+      fill={'#432E54'}
+      fontFamily={'Segoe Print'}
+      fontSize={62}
+      fontWeight={900}
+      position={[0, 0]}
+    />
   );
 
   yield* waitFor(0.51);
   yield* title().text('Add detailed Description and Screenshots or Video', 2);
-  yield* waitFor(4);
-  yield* title().opacity(0, 1);
-
   yield* waitFor(2);
+  yield* title().opacity(0, 1);
 
   view.add(
     <Node position={[20, 0]}>
@@ -33,12 +44,51 @@ export default makeScene2D(function* (view) {
     </Node>
   );
 
-  yield* tip1().text('1. What the PR does', 2);
-  yield* tip2().text('2. Why the change is necessary', 2);
+  yield* tip1().text('1. What the PR does?', 2);
+  yield* tip2().text('2. Why the change is necessary?', 2);
   yield* tip3().text('3. Any potential side effects', 3);
 
   yield* waitFor(1);
   yield* all(tip1().opacity(0, 2), tip2().opacity(0, 2), tip3().opacity(0, 2));
+
+  const bugImg = createRef<Img>();
+  const reportImg = createRef<Img>();
+  const bugArrow = createRef<Line>();
+
+  view.add(
+    <>
+      <Line
+        ref={bugArrow}
+        position={[-800, 0]}
+        stroke={'#666'}
+        lineWidth={8}
+        lineDash={[20, 20]}
+        lineDashOffset={() => 20}
+        end={0}
+        points={[
+          [400, -600],
+          [400, -100],
+        ]}
+      />
+      <Img
+        ref={bugImg}
+        src={bug}
+        position={[-400, -800]}
+        width={150}
+        height={150}
+      />
+      <Img
+        ref={reportImg}
+        src={report}
+        position={[600, 0]}
+        width={250}
+        height={250}
+      />
+    </>
+  );
+  yield* waitFor(2);
+  yield* all(bugArrow().end(2, 0.6), bugImg().position.y(-100, 3));
+  yield* waitFor(2);
 
   const PRBtnText = createRef<Txt>();
   const PRBtn = createRef<Rect>();
@@ -87,12 +137,15 @@ export default makeScene2D(function* (view) {
   yield* arrow().end(1, 0.6);
   yield* PRBtn().fill('#4a465b', 0.2);
   yield* PRBtnText().text('Try my New Feature', 0.5);
-  yield* waitFor(3);
+  yield* waitFor(1);
 
   yield* all(
     arrow().opacity(0, 0.5),
     PRBtn().opacity(0, 0.5),
-    PRBtnText().opacity(0, 0.5)
+    PRBtnText().opacity(0, 0.5),
+    bugArrow().opacity(0, 0.5),
+    reportImg().opacity(0, 0.5),
+    bugImg().opacity(0, 0.5)
   );
 
   const templateImg = createRef<Img>();
@@ -136,9 +189,9 @@ export default makeScene2D(function* (view) {
   yield* waitFor(1);
   yield* templateT1().text('Change Documentation Location', 1);
   yield* templateT2().text('New End To End Test', 2);
-  yield* templateT3().text('Security Fix', 4);
+  yield* templateT3().text('Security Fix', 2);
 
-  yield* waitFor(6);
+  yield* waitFor(1);
   yield* all(
     templateImg().opacity(0, 1),
     templateImg2().opacity(0, 1),

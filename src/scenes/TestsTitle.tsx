@@ -1,4 +1,4 @@
-import { makeScene2D, Circle, Rect, Img } from '@motion-canvas/2d';
+import { makeScene2D, Circle, Rect, Img, Txt, Node } from '@motion-canvas/2d';
 import {
   all,
   waitFor,
@@ -10,12 +10,62 @@ import { createRef, createRefMap } from '@motion-canvas/core/lib/utils';
 import checkmark from '../images/checkmark.png';
 import CodeLine from '../components/codeLines/CodeLine';
 import CodeLine2 from '../components/codeLines/CodeLine2';
+import black from '../images/black.png';
+import prettier from '../images/prettier.png';
 
 export default makeScene2D(function* (view) {
   const check = createRefMap<Img>();
   const ref = createRefMap<Circle>();
-
+  const title = createRef<Txt>();
   view.add(<Rect fill={'#27262f'} width={view.width} height={view.height} />);
+
+  yield view.add(
+    <Txt
+      ref={title}
+      strokeFirst
+      lineWidth={10}
+      lineJoin={'round'}
+      stroke={'#c0a9e0'}
+      fill={'#432E54'}
+      fontFamily={'Segoe Print'}
+      fontSize={62}
+      fontWeight={900}
+      position={[0, 0]}
+    />
+  );
+
+  yield* waitFor(0.51);
+  yield* title().text('Code is Well-Formatted and Tested', 2);
+  yield* waitFor(2);
+  yield* title().opacity(0, 1);
+  const nd = createRef<Node>();
+
+  view.add(
+    <Node ref={nd}>
+      <Img
+        src={black}
+        width={800}
+        height={400}
+        position={[-400, 0]}
+        stroke={'red'}
+        lineWidth={10}
+        radius={20}
+      />
+      <Img
+        src={prettier}
+        width={800}
+        height={400}
+        position={[500, 0]}
+        stroke={'red'}
+        lineWidth={10}
+        radius={20}
+      />
+    </Node>
+  );
+
+  yield* waitFor(2);
+  yield* nd().opacity(0, 1);
+
   yield view.add(
     <>
       <>
@@ -88,7 +138,7 @@ export default makeScene2D(function* (view) {
           position={[-695, 95]}
           alpha={0}
         />
-        <CodeLine lineY={100} />
+        <CodeLine2 lineY={100} />
       </>
     </>
   );
@@ -131,27 +181,5 @@ export default makeScene2D(function* (view) {
     check.d().size([50, 50], 1).to([80, null], 1),
     check.d().alpha(0, 1).to(1, 1)
   );
-  waitFor(1000);
+  yield* waitFor(2);
 });
-
-// const arrow = createRef<Line>();
-//   view.add(
-//     <Line
-//       ref={arrow}
-//       position={[0, 0]}
-//       stroke={"#666"}
-//       lineWidth={8}
-//       endArrow
-//       //   startOffset={() => 20}
-//       lineDash={[20, 20]}
-//       //   lineDashOffset={() => 20}
-//       endOffset={200}
-//       end={0}
-//       radius={480}
-//       points={[
-//         [0, 0],
-//         [480, 480],
-//         [960, 0],
-//       ]}
-//     />
-//   );

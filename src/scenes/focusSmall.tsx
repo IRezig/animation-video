@@ -17,35 +17,27 @@ export default makeScene2D(function* (view) {
 
   //BG
   view.add(<Rect fill={'#27262f'} width={view.width} height={view.height} />);
-  // view.add(
-  //   <Rect ref={rectangle} size={[900, 400]} stroke={"white"} lineWidth={5} />
-  // );
-  // array construct to create multiple objects
-  // const circles = Array.from({ length: 4 }, () => createRef<Circle>());
-  // forEach syntax to add them all to the scene
-  // circles.forEach((ref) => {
-  //   view.add(<Circle ref={ref} size={150} stroke={"white"} lineWidth={5} />);
-  // });
+  yield view.add(
+    <Txt
+      ref={title}
+      strokeFirst
+      lineWidth={10}
+      lineJoin={'round'}
+      stroke={'#c0a9e0'}
+      fill={'#432E54'}
+      fontFamily={'Segoe Print'}
+      fontSize={62}
+      fontWeight={900}
+      position={[0, 0]}
+    />
+  );
 
-  // move the circles such that they surround the rectangle
-  // use sequence instead of all for a delayed set of animations (it pretty :)
-  // yield* sequence(
-  //   0.15, // delay between animations
-  //   circles[0]().right(rectangle().left().addX(-50), 1),
-  //   circles[1]().bottom(rectangle().top().addY(-50), 1),
-  //   circles[2]().left(rectangle().right().addX(50), 1),
-  //   circles[3]().top(rectangle().bottom().addY(50), 1)
-  // );
+  yield* title().text('Keep it small and focus', 2);
+  yield* title().opacity(0, 1);
 
   yield view.add(
     <Txt ref={title} fontSize={50} position={[0, 0]} fill="white" />
   );
-
-  // yield* waitFor(0.51);
-  // yield* title().text("Keep it small and focus", 2);
-  // yield* waitFor(4);
-  // yield* title().opacity(0, 1);
-  // yield* waitFor(2);
 
   view.add(
     <Line
