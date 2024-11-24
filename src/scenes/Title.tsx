@@ -203,39 +203,39 @@ export default makeScene2D(function* (view) {
   );
 
   yield* title().text('');
-  yield* title().opacity(1, 0.5);
-  yield* title().text('Meaningful Commit Messages', 2);
-  yield* title().position.y(-300, 1);
+  yield* title().opacity(1, 0.2);
+  // yield* title().text('Meaningful Commit Messages', 2);
+  // yield* title().position.y(-300, 1);
 
-  const goodCommit = createRef<Txt>();
-  const badCommit = createRef<Txt>();
+  // const goodCommit = createRef<Txt>();
+  // const badCommit = createRef<Txt>();
 
-  view.add(
-    <>
-      <Rect
-        fill={'#fff'}
-        width={840}
-        height={100}
-        position={[-450, -100]}
-        radius={22}
-      >
-        <Img src={checkmark} width={80} height={80} position={[-370, 0]} />
-        <Txt fontSize={40} position={[30, 0]} fill="green" ref={goodCommit} />
-      </Rect>
-      <Rect
-        fill={'#fff'}
-        width={400}
-        height={100}
-        position={[450, -100]}
-        radius={22}
-      >
-        <Img src={bad} width={60} height={60} position={[-140, 0]} />
-        <Txt fontSize={40} position={[0, 0]} fill="red" ref={badCommit} />
-      </Rect>
-    </>
-  );
+  // view.add(
+  //   <>
+  //     <Rect
+  //       fill={'#fff'}
+  //       width={840}
+  //       height={100}
+  //       position={[-450, -100]}
+  //       radius={22}
+  //     >
+  //       <Img src={checkmark} width={80} height={80} position={[-370, 0]} />
+  //       <Txt fontSize={40} position={[30, 0]} fill="green" ref={goodCommit} />
+  //     </Rect>
+  //     <Rect
+  //       fill={'#fff'}
+  //       width={400}
+  //       height={100}
+  //       position={[450, -100]}
+  //       radius={22}
+  //     >
+  //       <Img src={bad} width={60} height={60} position={[-140, 0]} />
+  //       <Txt fontSize={40} position={[0, 0]} fill="red" ref={badCommit} />
+  //     </Rect>
+  //   </>
+  // );
 
-  yield* goodCommit().text('add: debounce function to search input', 1);
-  yield* waitFor(1);
-  yield* badCommit().text('add: Stuff', 1);
+  // yield* goodCommit().text('add: debounce function to search input', 1);
+  // yield* waitFor(1);
+  // yield* badCommit().text('add: Stuff', 1);
 });

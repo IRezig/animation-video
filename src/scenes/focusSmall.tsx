@@ -1,4 +1,4 @@
-import { Line, makeScene2D, Rect, Txt } from '@motion-canvas/2d';
+import { Line, makeScene2D, Node, Rect, Txt } from '@motion-canvas/2d';
 import { all, waitFor } from '@motion-canvas/core';
 import { createRef } from '@motion-canvas/core';
 
@@ -55,7 +55,7 @@ export default makeScene2D(function* (view) {
         [-600, -100],
       ]}
     >
-      <>
+      <Node>
         <Line
           opacity={0}
           stroke="A594F9"
@@ -113,7 +113,7 @@ export default makeScene2D(function* (view) {
         >
           <Txt fontSize={25} position={[0, 0]} fill="white" ref={featureC} />
         </Line>
-      </>
+      </Node>
       <Txt fontSize={80} position={[0, 0]} fill="white" ref={feature} />
     </Line>
   );
@@ -135,5 +135,5 @@ export default makeScene2D(function* (view) {
     featureC().text('Security and Session Management', 2)
   );
 
-  // yield* waitFor(10);
+  yield* waitFor(2);
 });

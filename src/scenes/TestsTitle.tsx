@@ -1,11 +1,5 @@
 import { makeScene2D, Circle, Rect, Img, Txt, Node } from '@motion-canvas/2d';
-import {
-  all,
-  waitFor,
-  easeOutCubic,
-  easeInCubic,
-  waitUntil,
-} from '@motion-canvas/core';
+import { all, waitFor, easeOutCubic, easeInCubic } from '@motion-canvas/core';
 import { createRef, createRefMap } from '@motion-canvas/core/lib/utils';
 import checkmark from '../images/checkmark.png';
 import CodeLine from '../components/codeLines/CodeLine';
@@ -39,6 +33,7 @@ export default makeScene2D(function* (view) {
   yield* waitFor(2);
   yield* title().opacity(0, 1);
   const nd = createRef<Node>();
+  yield* waitFor(2);
 
   view.add(
     <Node ref={nd}>
@@ -63,7 +58,7 @@ export default makeScene2D(function* (view) {
     </Node>
   );
 
-  yield* waitFor(2);
+  yield* waitFor(4);
   yield* nd().opacity(0, 1);
 
   yield view.add(

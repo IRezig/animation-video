@@ -46,7 +46,9 @@ export default makeScene2D(function* (view) {
   const descLabel = createRef<Txt>();
 
   view.add(
-    <Rect layout fill={'#141414'} height={'100%'} width={'100%'}></Rect>
+    <>
+      ‡<Rect layout fill={'#141414'} height={'100%'} width={'100%'} />
+    </>
   );
 
   yield view.add(
